@@ -62,7 +62,7 @@ export default async function NewsPage() {
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-4">
           {data.articles.map((article) => (
             <a
               key={article.id}
