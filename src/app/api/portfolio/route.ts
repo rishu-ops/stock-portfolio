@@ -9,6 +9,8 @@ const MOCK_PORTFOLIO: Stock[] = [
   { symbol: 'MSFT', qty: 8, avg: 280, price: 315 },
   { symbol: 'GOOGL', qty: 3, avg: 130, price: 142 },
   { symbol: 'AMZN', qty: 4, avg: 145, price: 138 },
+  { symbol: 'NVDA', qty: 7, avg: 130, price: 148 },
+  { symbol: 'META', qty: 3, avg: 480, price: 465 },
 ]
 
 export async function GET() {
