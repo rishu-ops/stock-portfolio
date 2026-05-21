@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import toast from 'react-hot-toast'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -34,15 +35,20 @@ export default function LoginPage() {
       })
 
       if (res.ok) {
+        toast.success('Signed in successfully')
         router.push('/dashboard')
         router.refresh()
         return
       }
 
       const data = await res.json().catch(() => ({}))
-      setError(data.error || 'Login failed')
+      const message = data.error || 'Login failed'
+      setError(message)
+      toast.error(message)
     } catch {
-      setError('Network error, please try again')
+      const message = 'Network error, please try again'
+      setError(message)
+      toast.error(message)
     } finally {
       setLoading(false)
     }

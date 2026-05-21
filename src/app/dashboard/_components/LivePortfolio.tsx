@@ -47,12 +47,16 @@ export default function LivePortfolio({ initialPortfolio }: Props) {
   return (
     <>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-2 text-white">My Portfolio</h1>
-        <div className="flex items-baseline gap-3 flex-wrap">
-          <span className="text-3xl font-bold tabular-nums text-white">
+        <h1 className="text-xl sm:text-2xl font-bold mb-2 text-white">
+          My Portfolio
+        </h1>
+        <div className="flex items-baseline gap-2 sm:gap-3 flex-wrap">
+          <span className="text-2xl sm:text-3xl font-bold tabular-nums text-white">
             {formatCurrency(currentValue)}
           </span>
-          <span className={`text-base font-semibold tabular-nums ${plColor}`}>
+          <span
+            className={`text-sm sm:text-base font-semibold tabular-nums ${plColor}`}
+          >
             {positive ? "+" : ""}
             {formatCurrency(totalPL)} ({positive ? "+" : ""}
             {totalPLPct.toFixed(2)}%)
