@@ -12,13 +12,13 @@ export default function PortfolioTable({ portfolio }: { portfolio: Stock[] }) {
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="text-xs uppercase text-gray-500 border-b border-[#262d35]">
-            <th className="px-4 py-2 text-left font-medium">Symbol</th>
-            <th className="px-4 py-2 text-right font-medium">Qty</th>
-            <th className="px-4 py-2 text-right font-medium">Avg Price</th>
-            <th className="px-4 py-2 text-right font-medium">Current</th>
-            <th className="px-4 py-2 text-right font-medium">Day's Change</th>
-            <th className="px-4 py-2 text-right font-medium">P/L</th>
+          <tr className="text-[11px] uppercase tracking-wider text-gray-500 bg-[#181d23] border-b border-[#262d35]">
+            <th className="px-4 py-2.5 text-left font-semibold">Symbol</th>
+            <th className="px-4 py-2.5 text-right font-semibold">Qty</th>
+            <th className="px-4 py-2.5 text-right font-semibold">Avg Price</th>
+            <th className="px-4 py-2.5 text-right font-semibold">Current</th>
+            <th className="px-4 py-2.5 text-right font-semibold">Change</th>
+            <th className="px-4 py-2.5 text-right font-semibold">P/L</th>
           </tr>
         </thead>
         <tbody>
@@ -28,30 +28,34 @@ export default function PortfolioTable({ portfolio }: { portfolio: Stock[] }) {
             const pl = change * stock.qty
             const positive = pl >= 0
             const color = positive ? 'text-green-400' : 'text-red-400'
+            const arrow = positive ? '▲' : '▼'
 
             return (
               <tr
                 key={stock.symbol}
-                className="border-b border-[#262d35] last:border-0 hover:bg-[#222932]"
+                className="border-b border-[#262d35] last:border-0 hover:bg-[#222932] transition-colors"
               >
-                <td className="px-4 py-3 font-semibold text-indigo-400">
-                  {stock.symbol}
+                <td className="px-4 py-3.5">
+                  <span className="font-semibold text-indigo-400">
+                    {stock.symbol}
+                  </span>
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums text-gray-200">
+                <td className="px-4 py-3.5 text-right tabular-nums text-gray-200">
                   {stock.qty}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums text-gray-300">
+                <td className="px-4 py-3.5 text-right tabular-nums text-gray-300">
                   {formatCurrency(stock.avg)}
                 </td>
-                <td className="px-4 py-3 text-right tabular-nums font-medium text-white">
+                <td className="px-4 py-3.5 text-right tabular-nums font-medium text-white">
                   {formatCurrency(stock.price)}
                 </td>
-                <td className={`px-4 py-3 text-right tabular-nums ${color}`}>
+                <td className={`px-4 py-3.5 text-right tabular-nums ${color}`}>
+                  <span className="mr-1 text-[10px]">{arrow}</span>
                   {positive ? '+' : ''}
                   {changePct.toFixed(2)}%
                 </td>
                 <td
-                  className={`px-4 py-3 text-right tabular-nums font-medium ${color}`}
+                  className={`px-4 py-3.5 text-right tabular-nums font-semibold ${color}`}
                 >
                   {positive ? '+' : ''}
                   {formatCurrency(pl)}

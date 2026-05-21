@@ -37,15 +37,20 @@ export default function Header() {
       <Link
         href={href}
         className={
-          "relative h-full flex items-center px-3 sm:px-4 text-sm font-medium transition-colors " +
+          "group relative h-full flex items-center px-3 sm:px-4 text-sm font-medium transition-colors " +
           (active ? "text-white" : "text-gray-400 hover:text-white")
         }
       >
         <span className="hidden sm:inline">{label}</span>
         <span className="sm:hidden">{mobileLabel ?? label}</span>
-        {active && (
-          <span className="absolute inset-x-3 sm:inset-x-4 bottom-0 h-0.5 bg-indigo-400 rounded-t" />
-        )}
+        <span
+          className={
+            "absolute inset-x-3 sm:inset-x-4 bottom-0 h-0.5 rounded-t transition-colors " +
+            (active
+              ? "bg-indigo-400"
+              : "bg-transparent group-hover:bg-gray-700")
+          }
+        />
       </Link>
     );
   }

@@ -67,13 +67,17 @@ export default function LoginPage() {
 
       <div className="flex-1 flex items-center justify-center p-4">
         <div className="w-full max-w-md">
-          <div className="bg-[#1c2228] border border-[#262d35] rounded-lg p-8">
-            <h1 className="text-2xl font-semibold mb-1 text-white">Sign in</h1>
-            <p className="text-sm text-gray-400 mb-6">
-              to continue to your portfolio
-            </p>
+          <div className="bg-[#1c2228] border border-[#262d35] rounded-lg overflow-hidden">
+            <div className="h-1 bg-indigo-500" />
+            <div className="p-8">
+              <h1 className="text-2xl font-semibold mb-1 text-white">
+                Sign in
+              </h1>
+              <p className="text-sm text-gray-400 mb-6">
+                to continue to your portfolio
+              </p>
 
-            <form onSubmit={handleSubmit} noValidate>
+              <form onSubmit={handleSubmit} noValidate>
               {error && (
                 <div className="mb-4 p-3 bg-red-950/40 border border-red-800 text-red-300 text-sm rounded">
                   {error}
@@ -126,11 +130,15 @@ export default function LoginPage() {
                 {loading ? 'Signing in...' : 'Sign in'}
               </button>
             </form>
+            </div>
           </div>
 
-          <p className="text-xs text-gray-500 text-center mt-4">
-            Demo: test@finapp.com / 123456
-          </p>
+          <div className="mt-4 px-4 py-3 bg-[#1c2228]/60 border border-[#262d35] rounded text-xs text-gray-400 flex items-center justify-between gap-2">
+            <span className="text-gray-500">Demo credentials</span>
+            <span className="font-mono text-gray-300">
+              test@finapp.com / 123456
+            </span>
+          </div>
         </div>
       </div>
     </div>
