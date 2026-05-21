@@ -48,26 +48,31 @@ export default async function NewsPage() {
     <div className="flex-1 flex flex-col">
       <Header />
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
-        <div className="mb-6">
-          <h1 className="text-xl sm:text-2xl font-bold mb-2 text-white">
-            Market News
-          </h1>
-          <p className="text-xs text-gray-400">
-            Cached for 30 seconds · Last regenerated at {generatedAtLabel}
+        <div className="mb-6 flex items-end justify-between flex-wrap gap-2">
+          <div>
+            <h1 className="text-xl sm:text-2xl font-bold text-white">
+              Market News
+            </h1>
+            <p className="text-xs text-gray-400 mt-0.5">
+              {data.articles.length} stories · cached for 30s
+            </p>
+          </div>
+          <p className="text-xs text-gray-500">
+            Last regenerated at {generatedAtLabel}
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
           {data.articles.map((article) => (
             <a
               key={article.id}
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block bg-[#1c2228] border border-[#262d35] rounded-lg p-5 hover:border-indigo-500/50 hover:bg-[#1f262d] transition-colors"
+              className="group block bg-[#1c2228] border border-[#262d35] rounded-lg px-4 py-3 hover:border-indigo-500/40 hover:bg-[#1f262d] transition-colors"
             >
-              <div className="flex items-center gap-2 mb-2 flex-wrap">
-                <span className="text-[10px] font-semibold text-indigo-300 uppercase tracking-wider bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded">
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <span className="text-[10px] font-semibold text-indigo-300 uppercase tracking-wider bg-indigo-500/10 border border-indigo-500/20 px-1.5 py-0.5 rounded">
                   {article.category}
                 </span>
                 <span className="text-xs text-gray-400 font-medium">
@@ -79,18 +84,13 @@ export default async function NewsPage() {
                 </span>
               </div>
 
-              <h2 className="text-base sm:text-lg font-semibold text-white mb-2 group-hover:text-indigo-300 transition-colors">
+              <h2 className="text-[15px] sm:text-base font-semibold text-white mb-1 group-hover:text-indigo-300 transition-colors leading-snug">
                 {article.title}
               </h2>
 
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-400 leading-snug line-clamp-2">
                 {article.summary}
               </p>
-
-              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                Read on {article.source}
-                <span aria-hidden>→</span>
-              </div>
             </a>
           ))}
         </div>
