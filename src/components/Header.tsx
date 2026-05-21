@@ -37,24 +37,25 @@ export default function Header() {
       <Link
         href={href}
         className={
-          "h-full flex items-center px-2 sm:px-3 text-sm font-medium border-b-2 " +
-          (active
-            ? "border-indigo-400 text-white"
-            : "border-transparent text-gray-400 hover:text-white")
+          "relative h-full flex items-center px-3 sm:px-4 text-sm font-medium transition-colors " +
+          (active ? "text-white" : "text-gray-400 hover:text-white")
         }
       >
         <span className="hidden sm:inline">{label}</span>
         <span className="sm:hidden">{mobileLabel ?? label}</span>
+        {active && (
+          <span className="absolute inset-x-3 sm:inset-x-4 bottom-0 h-0.5 bg-indigo-400 rounded-t" />
+        )}
       </Link>
     );
   }
 
   return (
-    <header className="bg-[#14181c] border-b border-[#262d35]">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 h-14 flex items-center justify-between gap-2">
+    <header className="bg-[#14181c] border-b border-[#262d35] sticky top-0 z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-3">
         <Link
           href="/dashboard"
-          className="text-base sm:text-lg font-bold whitespace-nowrap"
+          className="text-base sm:text-lg font-bold whitespace-nowrap shrink-0"
         >
           <span className="text-indigo-400">FinApp</span>
           <span className="text-white hidden sm:inline"> Finance</span>
@@ -72,7 +73,7 @@ export default function Header() {
         <button
           onClick={handleLogout}
           disabled={loggingOut}
-          className="text-xs sm:text-sm text-gray-300 border border-gray-500 px-3 py-1.5 rounded-full hover:text-white hover:border-gray-300 disabled:opacity-50 whitespace-nowrap"
+          className="text-xs sm:text-sm text-gray-300 bg-[#1c2228] hover:bg-[#262d35] border border-[#2d343c] hover:border-[#3a424c] px-3 py-1.5 rounded-md hover:text-white disabled:opacity-50 whitespace-nowrap transition-colors"
         >
           {loggingOut ? "Signing out..." : "Sign out"}
         </button>

@@ -5,6 +5,7 @@ export type NewsArticle = {
   category: string;
   summary: string;
   publishedAt: string;
+  url: string;
 };
 
 export type NewsResponse = {

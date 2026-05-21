@@ -15,6 +15,7 @@ export async function GET() {
       summary:
         "Major indices closed at record levels on Friday driven by strong quarterly earnings from large-cap technology companies.",
       publishedAt: new Date(now - 25 * minute).toISOString(),
+      url: "https://www.reuters.com/markets/",
     },
     {
       id: "n2",
@@ -24,6 +25,7 @@ export async function GET() {
       summary:
         "Investor optimism around AI infrastructure spending has pushed the sector up nearly 12% this month.",
       publishedAt: new Date(now - 2 * hour).toISOString(),
+      url: "https://www.bloomberg.com/markets/stocks",
     },
     {
       id: "n3",
@@ -33,6 +35,7 @@ export async function GET() {
       summary:
         "Minutes from the latest FOMC meeting show officials want to see further evidence of disinflation before easing policy.",
       publishedAt: new Date(now - 4 * hour).toISOString(),
+      url: "https://www.wsj.com/economy",
     },
     {
       id: "n4",
@@ -42,6 +45,7 @@ export async function GET() {
       summary:
         "Brent crude settled lower for a second consecutive session as inventory data pointed to easing supply pressure.",
       publishedAt: new Date(now - 6 * hour).toISOString(),
+      url: "https://www.cnbc.com/commodities/",
     },
     {
       id: "n5",
@@ -51,6 +55,7 @@ export async function GET() {
       summary:
         "The company unveiled its next generation of M-series processors with focus on on-device machine learning performance.",
       publishedAt: new Date(now - 9 * hour).toISOString(),
+      url: "https://www.theverge.com/apple",
     },
     {
       id: "n6",
@@ -60,6 +65,7 @@ export async function GET() {
       summary:
         "Q1 delivery figures came in above consensus estimates, sending shares up nearly 4% in pre-market trading.",
       publishedAt: new Date(now - 12 * hour).toISOString(),
+      url: "https://www.ft.com/companies/automobiles",
     },
   ];
 

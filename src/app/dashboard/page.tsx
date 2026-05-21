@@ -32,9 +32,9 @@ export default async function DashboardPage() {
   const portfolio = await getPortfolio();
 
   return (
-    <div className="min-h-screen">
+    <div className="flex-1 flex flex-col">
       <Header />
-      <main className="max-w-7xl mx-auto px-4 py-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
         <LivePortfolio initialPortfolio={portfolio} />
       </main>
     </div>

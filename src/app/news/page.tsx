@@ -45,11 +45,13 @@ export default async function NewsPage() {
   );
 
   return (
-    <div className="min-h-screen">
+    <div className="flex-1 flex flex-col">
       <Header />
-      <main className="max-w-7xl mx-auto px-4 py-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
         <div className="mb-6">
-          <h1 className="text-2xl font-bold mb-2 text-white">Market News</h1>
+          <h1 className="text-xl sm:text-2xl font-bold mb-2 text-white">
+            Market News
+          </h1>
           <p className="text-xs text-gray-400">
             Cached for 30 seconds · Last regenerated at {generatedAtLabel}
           </p>
@@ -57,28 +59,39 @@ export default async function NewsPage() {
 
         <div className="space-y-3">
           {data.articles.map((article) => (
-            <article
+            <a
               key={article.id}
-              className="bg-[#1c2228] border border-[#262d35] rounded-lg p-4 hover:border-[#363f48] transition-colors"
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block bg-[#1c2228] border border-[#262d35] rounded-lg p-5 hover:border-indigo-500/50 hover:bg-[#1f262d] transition-colors"
             >
-              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <span className="text-xs font-semibold text-indigo-400 uppercase tracking-wide">
+              <div className="flex items-center gap-2 mb-2 flex-wrap">
+                <span className="text-[10px] font-semibold text-indigo-300 uppercase tracking-wider bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded">
                   {article.category}
                 </span>
+                <span className="text-xs text-gray-400 font-medium">
+                  {article.source}
+                </span>
                 <span className="text-xs text-gray-600">·</span>
-                <span className="text-xs text-gray-400">{article.source}</span>
-                <span className="text-xs text-gray-600">·</span>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-gray-500">
                   {timeAgo(article.publishedAt, refTime)}
                 </span>
               </div>
-              <h2 className="text-base font-semibold text-white mb-1">
+
+              <h2 className="text-base sm:text-lg font-semibold text-white mb-2 group-hover:text-indigo-300 transition-colors">
                 {article.title}
               </h2>
+
               <p className="text-sm text-gray-400 leading-relaxed">
                 {article.summary}
               </p>
-            </article>
+
+              <div className="mt-3 flex items-center gap-1 text-xs font-medium text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                Read on {article.source}
+                <span aria-hidden>→</span>
+              </div>
+            </a>
           ))}
         </div>
       </main>
