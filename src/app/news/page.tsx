@@ -40,8 +40,14 @@ export default async function NewsPage() {
   const data = await getNews();
   const refTime = new Date(data.generatedAt).getTime();
   const generatedAtLabel = new Date(data.generatedAt).toLocaleTimeString(
-    "en-US",
-    { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false },
+    "en-IN",
+    {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+      timeZone: "Asia/Kolkata",
+    },
   );
 
   return (
