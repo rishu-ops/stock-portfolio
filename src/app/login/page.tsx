@@ -55,7 +55,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col p-2">
       <header className="border-b border-[#262d35]">
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center">
           <span className="text-lg font-bold">

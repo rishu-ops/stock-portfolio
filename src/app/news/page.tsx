@@ -51,7 +51,7 @@ export default async function NewsPage() {
   );
 
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col lg:p-4 p-2">
       <Header />
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
         <div className="mb-6 flex items-end justify-between flex-wrap gap-2">

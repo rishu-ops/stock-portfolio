@@ -37,7 +37,7 @@ export default function Header() {
       <Link
         href={href}
         className={
-          "group relative h-full flex items-center px-3 sm:px-4 text-sm font-medium transition-colors " +
+          "group relative h-full flex items-center px-3 sm:px-4 lg:px-5 text-sm font-medium transition-colors " +
           (active ? "text-white" : "text-gray-400 hover:text-white")
         }
       >
@@ -45,10 +45,10 @@ export default function Header() {
         <span className="sm:hidden">{mobileLabel ?? label}</span>
         <span
           className={
-            "absolute inset-x-3 sm:inset-x-4 bottom-0 h-0.5 rounded-t transition-colors " +
+            "absolute inset-x-3 sm:inset-x-4 lg:inset-x-5 bottom-0 h-1 rounded-t transition-colors " +
             (active
-              ? "bg-indigo-400"
-              : "bg-transparent group-hover:bg-gray-700")
+              ? "bg-indigo-500"
+              : "bg-transparent group-hover:bg-gray-600")
           }
         />
       </Link>
@@ -78,7 +78,7 @@ export default function Header() {
         <button
           onClick={handleLogout}
           disabled={loggingOut}
-          className="text-xs sm:text-sm text-gray-300 bg-[#1c2228] hover:bg-[#262d35] border border-[#2d343c] hover:border-[#3a424c] px-3 py-1.5 rounded-md hover:text-white disabled:opacity-50 whitespace-nowrap transition-colors"
+          className="text-xs sm:text-sm text-red-400 bg-[#1c2228] hover:bg-red-950 border border-red-800 hover:border-red-700 px-3 py-1.5 rounded-md hover:text-red-200 disabled:opacity-50 whitespace-nowrap transition-colors"
         >
           {loggingOut ? "Signing out..." : "Sign out"}
         </button>
