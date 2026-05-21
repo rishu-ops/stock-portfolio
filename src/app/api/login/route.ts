@@ -8,27 +8,19 @@ import {
 } from '@/lib/auth'
 
 export async function POST(request: Request) {
-  let raw: unknown
-  try {
-    raw = await request.json()
-  } catch {
+  const body = await request.json().catch(() => null)
+
+  if (!body) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
   }
 
-  if (!raw || typeof raw !== 'object') {
-    return NextResponse.json({ error: 'Invalid payload' }, { status: 400 })
-  }
-
-  const { email, password } = raw as {
-    email?: unknown
-    password?: unknown
-  }
+  const { email, password } = body
 
   if (
+    !email ||
+    !password ||
     typeof email !== 'string' ||
-    typeof password !== 'string' ||
-    email.trim() === '' ||
-    password === ''
+    typeof password !== 'string'
   ) {
     return NextResponse.json(
       { error: 'Email and password are required' },
