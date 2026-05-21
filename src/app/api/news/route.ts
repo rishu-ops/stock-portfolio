@@ -12,6 +12,7 @@ export async function GET() {
       title: "Market hits all-time high as tech stocks rally",
       source: "Reuters",
       category: "Markets",
+      tagColor: "#3b82f6",
       summary:
         "Major indices closed at record levels on Friday driven by strong quarterly earnings from large-cap technology companies.",
       publishedAt: new Date(now - 25 * minute).toISOString(),
@@ -22,6 +23,7 @@ export async function GET() {
       title: "Tech stocks rally continues into a third week",
       source: "Bloomberg",
       category: "Stocks",
+      tagColor: "#8b5cf6",
       summary:
         "Investor optimism around AI infrastructure spending has pushed the sector up nearly 12% this month.",
       publishedAt: new Date(now - 2 * hour).toISOString(),
@@ -32,6 +34,7 @@ export async function GET() {
       title: "Federal Reserve signals patience on rate cuts",
       source: "Wall Street Journal",
       category: "Economy",
+      tagColor: "#f59e0b",
       summary:
         "Minutes from the latest FOMC meeting show officials want to see further evidence of disinflation before easing policy.",
       publishedAt: new Date(now - 4 * hour).toISOString(),
@@ -42,6 +45,7 @@ export async function GET() {
       title: "Oil prices ease as supply concerns fade",
       source: "CNBC",
       category: "Commodities",
+      tagColor: "#f97316",
       summary:
         "Brent crude settled lower for a second consecutive session as inventory data pointed to easing supply pressure.",
       publishedAt: new Date(now - 6 * hour).toISOString(),
@@ -52,6 +56,7 @@ export async function GET() {
       title: "Apple announces new chip lineup at developer event",
       source: "The Verge",
       category: "Tech",
+      tagColor: "#06b6d4",
       summary:
         "The company unveiled its next generation of M-series processors with focus on on-device machine learning performance.",
       publishedAt: new Date(now - 9 * hour).toISOString(),
@@ -62,6 +67,7 @@ export async function GET() {
       title: "Tesla deliveries beat analyst expectations",
       source: "Financial Times",
       category: "Auto",
+      tagColor: "#10b981",
       summary:
         "Q1 delivery figures came in above consensus estimates, sending shares up nearly 4% in pre-market trading.",
       publishedAt: new Date(now - 12 * hour).toISOString(),

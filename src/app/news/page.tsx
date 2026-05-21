@@ -78,7 +78,14 @@ export default async function NewsPage() {
               className="group block bg-[#1c2228] border border-[#262d35] rounded-lg px-4 py-3 hover:border-indigo-500/40 hover:bg-[#1f262d] transition-colors"
             >
               <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <span className="text-[10px] font-semibold text-indigo-300 uppercase tracking-wider bg-indigo-500/10 border border-indigo-500/20 px-1.5 py-0.5 rounded">
+                <span
+                  className="text-[10px] font-semibold uppercase tracking-wider border px-1.5 py-0.5 rounded"
+                  style={{
+                    color: article.tagColor,
+                    backgroundColor: `${article.tagColor}1a`,
+                    borderColor: `${article.tagColor}33`,
+                  }}
+                >
                   {article.category}
                 </span>
                 <span className="text-xs text-gray-400 font-medium">
@@ -90,7 +97,7 @@ export default async function NewsPage() {
                 </span>
               </div>
 
-              <h2 className="text-[15px] sm:text-base font-semibold text-white mb-1 group-hover:text-indigo-300 transition-colors leading-snug">
+              <h2 className="text-[15px] sm:text-base font-semibold text-white mb-1 hover:underline group-hover:text-indigo-300 transition-colors leading-snug">
                 {article.title}
               </h2>
 

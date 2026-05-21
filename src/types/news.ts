@@ -3,6 +3,7 @@ export type NewsArticle = {
   title: string;
   source: string;
   category: string;
+  tagColor: string;
   summary: string;
   publishedAt: string;
   url: string;
